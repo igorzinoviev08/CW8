@@ -177,7 +177,7 @@ SIMPLE_JWT = {
 # cashe
 CASHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.redis.RedisCache'
+        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
         'LOCATION': os.getenv('CACHES_LOCATION'), }}
 
 # Celery broker settings
@@ -194,13 +194,12 @@ CELERY_TIMEZONE = 'Europe/Moscow'
 CELERY_BEAT_SCHEDULE = {
     'task-name': {
         'task': 'habit.tasks.send_message', # Путь к задаче
-        'schedule': timedelta(seconds=10), # Расписание выполнения задачи
-(например, каждые 10 минут)
+        'schedule': timedelta(seconds=10), # Расписание выполнения задачи (например, каждые 10 минут)
     },
 }
 
- # CORS settings
- CORS_ALLOWED_ORIGINS = [
+# CORS settings
+CORS_ALLOWED_ORIGINS = [
      "https://read-only.example.com",
      "https://read-and-write.example.com",
  ]
